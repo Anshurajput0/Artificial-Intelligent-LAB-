@@ -1,0 +1,39 @@
+graph={
+    'A' : ['B','C','D','E'],
+    'B' : ['F','G'],
+    'C' : ['H'],
+    'D' : ['I'],
+    'E' : ['J','K'],
+    'F' : [],
+    'G' : ['L'],
+    'H' : ['M'],
+    'I' : ['N'],
+    'J' : ['O'],
+    'K' : [],
+    'L' : [],
+    'M' : ['P'],
+    'N' : ['Q'],
+    'O' : [],
+    'P' : [],
+    'Q' : [],
+
+}
+visited = []
+res=['P','Q']
+found = False
+def dfs(graph,node):
+  global found
+  if node not  in visited:
+      print(node,end=' ')
+      visited.append(node)
+      if node in res:
+
+        print('Reached')
+        found = True
+        return
+       
+      for neighbour in graph[node]:
+        if not found:
+          dfs(graph,neighbour)
+res = set(['P','Q'])
+dfs(graph,'A')
